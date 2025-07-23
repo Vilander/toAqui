@@ -52,5 +52,5 @@ Permite cadastrar anúncios, visualizar serviços e consultar termos de uso da p
 
 - 👤 [Vilander Costa](https://github.com/vilander)
 - 👤 [Hellienay Felipe](https://github.com/hellienayfelipe)
-- 👤 [Vitor](https://github.com/)
-- 👤 [Samuel](https://github.com/)
+- 👤 [Vitor](https://github.com/vitor521)
+- 👤 [Samuel](https://github.com/samuelbelmonte06)
