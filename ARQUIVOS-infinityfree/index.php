@@ -103,6 +103,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         .paginacao {
             text-align: center;
             margin: 20px;
+            padding-bottom:2rem;
         }
         .paginacao a {
             display: inline-block;
