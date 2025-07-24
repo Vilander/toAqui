@@ -1,47 +1,56 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 /**
- * Script para limpeza automática de anúncios antigos
- * - Exclui registros com mais de 90 dias no banco de dados
- * - Gera log da execução
- * - Proteção com senha via URL (para evitar execução por terceiros)
+ * Script para limpeza de anúncios
+ * - Remove anúncios de ontem (padrão para teste)
+ * - Inclui opção comentada para 90 dias
+ * - Proteção com senha via URL
+ * - Gera log de execução
  */
 
-// === CONFIGURAÇÃO DE SEGURANÇA ===
-// Defina uma senha simples para acessar o script
-$senhaCorreta = "minhaSenha123"; // Troque por algo seguro
+// === SENHA DE ACESSO ===
+$senhaCorreta = "minhaSenha123";
 
-// Verifica se a senha foi enviada na URL (ex: limpar_anuncios.php?senha=minhaSenha123)
+// Verifica senha enviada na URL
 if (!isset($_GET['senha']) || $_GET['senha'] !== $senhaCorreta) {
     die("Acesso negado: senha inválida.");
 }
 
-// === INCLUINDO CONEXÃO COM BANCO ===
-include 'conexao.php';
+// Inclui a conexão PDO
+include __DIR__ . '/conexao.php';
 
-// === COMANDO SQL PARA EXCLUIR ANÚNCIOS COM MAIS DE 90 DIAS ===
-$sql = "DELETE FROM produtos WHERE criado_em < NOW() - INTERVAL 90 DAY";
+// === COMANDO SQL ===
+// ATUAL: Exclui anúncios criados ONTEM
+$sql = "DELETE FROM produtos WHERE DATE(criado_em) = CURDATE() - INTERVAL 1 DAY";
 
-// Executa a query
-if ($conn->query($sql) === TRUE) {
-    $mensagem = "✅ " . date('d/m/Y H:i:s') . " - Anúncios antigos removidos com sucesso.\n";
-    echo "Anúncios antigos removidos com sucesso!";
-} else {
-    $mensagem = "❌ " . date('d/m/Y H:i:s') . " - Erro ao remover: " . $conn->error . "\n";
-    echo "Erro ao remover anúncios: " . $conn->error;
+// ALTERNATIVA (comente acima e descomente esta linha para 90 dias):
+// $sql = "DELETE FROM produtos WHERE criado_em < NOW() - INTERVAL 90 DAY";
+
+try {
+    // Executa a exclusão
+    $linhasAfetadas = $pdo->exec($sql);
+
+    if ($linhasAfetadas !== false) {
+        $mensagem = "✅ " . date('d/m/Y H:i:s') . " - Limpeza concluída. $linhasAfetadas anúncios excluídos.\n";
+        echo "Limpeza concluída. $linhasAfetadas anúncios excluídos.";
+    } else {
+        $mensagem = "❌ " . date('d/m/Y H:i:s') . " - Nenhum anúncio encontrado para exclusão.\n";
+        echo "Nenhum anúncio encontrado para exclusão.";
+    }
+} catch (PDOException $e) {
+    $mensagem = "❌ " . date('d/m/Y H:i:s') . " - Erro: " . $e->getMessage() . "\n";
+    echo "Erro: " . $e->getMessage();
 }
 
-// Fecha a conexão
-$conn->close();
+// Fecha a conexão PDO
+$pdo = null;
 
-// === REGISTRANDO LOG ===
-// Caminho do arquivo de log
-$arquivoLog = __DIR__ . '/logs/limpeza.log';
-
-// Cria a pasta logs caso não exista
-if (!is_dir(__DIR__ . '/logs')) {
-    mkdir(__DIR__ . '/logs', 0777, true);
+// === LOG ===
+$logDir = __DIR__ . '/logs';
+if (!is_dir($logDir)) {
+    mkdir($logDir, 0755, true);
 }
-
-// Escreve a mensagem no arquivo de log
-file_put_contents($arquivoLog, $mensagem, FILE_APPEND);
+file_put_contents($logDir . '/limpeza.log', $mensagem, FILE_APPEND);
 ?>
