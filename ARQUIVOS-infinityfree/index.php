@@ -2,6 +2,7 @@
 // Inclui o arquivo de conexão
 include 'conexao.php';
 
+
 // Categorias
 $categorias = [
     'moda' => 'Moda e Acessórios',
