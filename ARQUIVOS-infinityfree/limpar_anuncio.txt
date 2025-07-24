@@ -1,1 +1,36 @@
 https://toaqui-senac.ct.ws/limpar_anuncios.php?senha=minhaSenha123
+
+
+se quiser agendar automaticamente via bat
+
+1. Abra o Bloco de Notas e cole o seguinte código:
+--------------------------------------------------
+@echo off
+:: Script para acessar o link automaticamente
+set URL=https://toaqui-senac.ct.ws/limpar_anuncios.php?senha=minhaSenha123
+
+:: Usando o comando start para abrir no navegador padrão
+start "" "%URL%"
+
+:: Aguarda 10 segundos para garantir a execução
+timeout /t 10 /nobreak >nul
+
+:: Fecha a janela
+exit
+--------------------------------------------------
+
+SALVE COMO: limpar_anuncios.bat
+
+2. Criar uma Tarefa Agendada no Windows
+Abra o Agendador de Tarefas
+(Pesquise por "Agendador de Tarefas" no menu iniciar)
+
+Clique em Criar Tarefa Básica.
+
+Nome da tarefa: Limpar Anúncios Diário
+
+Acionador: Escolha Diariamente e configure o horário.
+
+Ação: Escolha Iniciar um programa e selecione o arquivo limpar_anuncios.bat.
+
+Conclua e confirme.
