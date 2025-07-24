@@ -30,7 +30,6 @@ Permite cadastrar anúncios, visualizar serviços e consultar termos de uso da p
 ## ✅ **Tecnologias Utilizadas**
 - **HTML5** → Estrutura semântica das páginas.
 - **CSS3** → Estilização responsiva (Flexbox, Media Queries).
-- **JavaScript** → Planejado para interatividade (filtros e busca).
 - **PHP** → Backend para processamento do cadastro.
 - **Git & GitHub** → Controle de versão.
 

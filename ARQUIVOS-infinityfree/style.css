@@ -72,7 +72,7 @@ img {
 header {
   position: relative;
   background: linear-gradient(rgba(255, 255, 255, 0.781), rgba(201, 216, 245, 0.5)),
-    url('imagens/fundo.jpg') center/cover no-repeat; /* Ajuste confirmado para PHP */
+    url('imagens/fundo.jpg') center/cover no-repeat; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -169,14 +169,6 @@ main.principal {
 }
 
 /* ===== FOOTER ===== */
-/* footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  background-color: #fff;
-} */
 
 footer {
     position: fixed;
