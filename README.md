@@ -17,7 +17,7 @@ O projeto desenvolvido é um quadro de anúncios interno do Senac que vem para a
 [![FefA3Hx.md.png](https://iili.io/FefA3Hx.md.png)](https://freeimage.host/i/FefA3Hx)
 
 ---
-## Acesse
+## 📲 Acesse
 [![Status](https://img.icons8.com/?size=100&id=YThajsbx8Pbf&format=png&color=000000)](https://toaqui-senac.ct.ws/)  https://toaqui-senac.ct.ws/
 ---
 
