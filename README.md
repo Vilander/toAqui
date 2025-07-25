@@ -1,10 +1,15 @@
 
 
-# 📌 TôAqui - Quadro de anúncios Senac -  Americana/SP
+# 📌 ToAqui - Quadro de anúncios Senac -  Americana/SP
 
 Projeto desenvolvido durante semana de Hackathon no Senac de Americana envolvendo as turmas de Informática para internet e Tecnico de informática.
 
 O projeto desenvolvido é um quadro de anúncios interno do Senac que vem para atender uma necessidade que hoje é feita em um quadro físico na entrada do estabelecimento.
+
+ToAqui! Esse foi o nome escolhido por ser uma forma informal de comunicação e essa é a idéia do APP, ser algo simples para empreendedores divulgarem seus produtos ou serviços.
+
+❓ Precisa de um serviço ou produto? 
+‼️TÔ AQUI! 
 
 
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)]()  
