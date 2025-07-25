@@ -20,7 +20,8 @@ $categorias = [
     'educacao' => 'Educação',
     'delivery' => 'Delivery e Transporte',
     'domesticos' => 'Serviços Domésticos',
-    'consultoria' => 'Consultoria e Profissionais Liberais'
+    'consultoria' => 'Consultoria e Profissionais Liberais',
+    'grafica' => 'Papelaria e Serviços Gráficos'
 ];
 
 // Parâmetros
@@ -75,6 +76,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            margin-top: 1rem;
             margin-bottom: 20px;
         }
         .busca-categoria form {
@@ -88,6 +90,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             font-size: 16px;
             border-radius: 8px;
             border: 1px solid #ccc;
+            max-width:90%;
         }
         .busca-categoria button {
             padding: 10px 20px;
